@@ -89,8 +89,16 @@ app.post("/iscc", upload.single("file"), (req, res) => {
   // or fetch('http://localhost:8000/iscc', { method: 'POST', body: new FormData().append('file', fileInput.files[0]) }).then((response) => response.json()).then((data) => console.log('Response:', data)).catch((error) => console.error('An error occurred:', error));
 });
 
+app.get("/*", (req, res) => {
+  res.send("sup olsen");
+});
+
+
 //
 // Start the server :)
 app.listen(8001, () => {
-  console.log("Server is listening on port 8001");
+app.get("/*", (req, res) => {
+  console.log(1);
+  res.sendFile(path.join(__dirname, "out", "index.html"));
 });
+
